@@ -13,22 +13,61 @@ class App extends Component {
     recipeSearch: ""
   };
 
-  handleInputChange = event => {
-    // Destructure the name and value properties off of event.target
-    // Update the appropriate state
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
-  handleFormSubmit = event => {
-    // When the form is submitted, prevent its default behavior, get recipes update the recipes state
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(
+      this
+    );
+  }
+  handleSubmit(event) {
     event.preventDefault();
-    API.getRecipes(this.state.recipeSearch)
-      .then(res => this.setState({ recipes: res.data }))
-      .catch(err => console.log(err));
-  };
+    alert(
+      `This is the file you selected - ${
+        this.fileInput.files[0].name
+      }`
+    );
+    console.log(this.fileInput.files[0]);
+  }
+
+//   render() {
+//     return (
+//       <form
+//         onSubmit={this.handleSubmit}>
+//         <label>
+//           Upload file:
+//           <input
+//             type="file"
+//             ref={input => {
+//               this.fileInput = input;
+//             }}
+//           />
+//         </label>
+//         <br />
+//         <button type="submit">
+//           Submit
+//         </button>
+//       </form>
+//     );
+//   }
+// }
+
+
+  // handleInputChange = event => {
+  //   // Destructure the name and value properties off of event.target
+  //   // Update the appropriate state
+  //   const { name, value } = event.target;
+  //   this.setState({
+  //     [name]: value
+  //   });
+  // };
+
+  // handleFormSubmit = event => {
+  //   // When the form is submitted, prevent its default behavior, get recipes update the recipes state
+  //   event.preventDefault();
+  //   API.getRecipes(this.state.recipeSearch)
+  //     .then(res => this.setState({ recipes: res.data }))
+  //     .catch(err => console.log(err));
+  // };
 
   render() {
     return (
@@ -38,24 +77,27 @@ class App extends Component {
         <Container>
           <Row>
             <Col size="md-12">
-              <form>
+            <form
+        onSubmit={this.handleSubmit}>
                 <Container>
                   <Row>
                     <Col size="xs-9 sm-10">
-                      <Input
-                        name="recipeSearch"
-                        value={this.state.recipeSearch}
-                        onChange={this.handleInputChange}
-                        placeholder="Search For a Recipe"
-                      />
+                      <label>
+                        Upload file:
+                        <input
+                          type="file"
+                          ref={input => {
+                            this.fileInput = input;
+                          }}
+                        />
+                      </label>
                     </Col>
                     <Col size="xs-3 sm-2">
                       <Button
                         onClick={this.handleFormSubmit}
                         type="success"
-                        className="input-lg"
-                      >
-                        Search
+                        className="input-lg">
+                        Submit
                       </Button>
                     </Col>
                   </Row>
@@ -66,7 +108,7 @@ class App extends Component {
           <Row>
             <Col size="xs-12">
               {!this.state.recipes.length ? (
-                <h1 className="text-center">No Recipes to Display</h1>
+                <h1 className="text-center">No Images to Display</h1>
               ) : (
                 <RecipeList>
                   {this.state.recipes.map(recipe => {
@@ -89,5 +131,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;
