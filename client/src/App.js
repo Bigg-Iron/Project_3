@@ -8,68 +8,47 @@ import { RecipeList, RecipeListItem } from "./components/RecipeList";
 import { Container, Row, Col } from "./components/Grid";
 
 class App extends Component {
-  state = {
-    recipes: [],
-    recipeSearch: ""
-  };
 
   constructor(props) {
     super(props);
-    this.handleSubmit = this.handleSubmit.bind(
-      this
-    );
+    this.state = {
+      file: '',
+      imagePreviewUrl: ''};
   }
+
   handleSubmit(event) {
     event.preventDefault();
     alert(
       `This is the file you selected - ${
-        this.fileInput.files[0].name
+        this.state.file[0]
       }`
     );
-    console.log(this.fileInput.files[0]);
+    console.log(this.state.file);
   }
 
-//   render() {
-//     return (
-//       <form
-//         onSubmit={this.handleSubmit}>
-//         <label>
-//           Upload file:
-//           <input
-//             type="file"
-//             ref={input => {
-//               this.fileInput = input;
-//             }}
-//           />
-//         </label>
-//         <br />
-//         <button type="submit">
-//           Submit
-//         </button>
-//       </form>
-//     );
-//   }
-// }
+  handleImageChange(event){
+    event.preventDefault();
 
+    let reader = new FileReader();
+    let file = event.target.files[0];
 
-  // handleInputChange = event => {
-  //   // Destructure the name and value properties off of event.target
-  //   // Update the appropriate state
-  //   const { name, value } = event.target;
-  //   this.setState({
-  //     [name]: value
-  //   });
-  // };
-
-  // handleFormSubmit = event => {
-  //   // When the form is submitted, prevent its default behavior, get recipes update the recipes state
-  //   event.preventDefault();
-  //   API.getRecipes(this.state.recipeSearch)
-  //     .then(res => this.setState({ recipes: res.data }))
-  //     .catch(err => console.log(err));
-  // };
+    reader.onloadend = () => {
+      this.setState({
+        file: file,
+        imagePreviewUrl: reader.result
+      });
+    }
+    reader.readAsDataURL(file)
+  }
 
   render() {
+    let {imagePreviewUrl} = this.state;
+    let $imagePreview = null;
+    if (imagePreviewUrl) {
+      $imagePreview = (<img src={imagePreviewUrl} />);
+    } else {
+      $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
+    }
     return (
       <div>
         <Nav />
@@ -84,17 +63,12 @@ class App extends Component {
                     <Col size="xs-9 sm-10">
                       <label>
                         Upload file:
-                        <input
-                          type="file"
-                          ref={input => {
-                            this.fileInput = input;
-                          }}
-                        />
+                        <input className="fileInput" type="file" onChange={(event)=>this.handleImageChange(event)}/>
                       </label>
                     </Col>
                     <Col size="xs-3 sm-2">
                       <Button
-                        onClick={this.handleFormSubmit}
+                        onClick={(event)=>this.handleSubmit(event)}
                         type="success"
                         className="input-lg">
                         Submit
@@ -107,23 +81,11 @@ class App extends Component {
           </Row>
           <Row>
             <Col size="xs-12">
-              {!this.state.recipes.length ? (
-                <h1 className="text-center">No Images to Display</h1>
-              ) : (
-                <RecipeList>
-                  {this.state.recipes.map(recipe => {
-                    return (
-                      <RecipeListItem
-                        key={recipe.title}
-                        title={recipe.title}
-                        href={recipe.href}
-                        ingredients={recipe.ingredients}
-                        thumbnail={recipe.thumbnail}
-                      />
-                    );
-                  })}
-                </RecipeList>
-              )}
+              {
+                <div className="imgPreview">
+                  {$imagePreview}
+                </div>
+              }
             </Col>
           </Row>
         </Container>
