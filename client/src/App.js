@@ -8,29 +8,47 @@ import { RecipeList, RecipeListItem } from "./components/RecipeList";
 import { Container, Row, Col } from "./components/Grid";
 
 class App extends Component {
-  state = {
-    recipes: [],
-    recipeSearch: ""
-  };
 
-  handleInputChange = event => {
-    // Destructure the name and value properties off of event.target
-    // Update the appropriate state
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      file: '',
+      imagePreviewUrl: ''};
+  }
 
-  handleFormSubmit = event => {
-    // When the form is submitted, prevent its default behavior, get recipes update the recipes state
+  handleSubmit(event) {
     event.preventDefault();
-    API.getRecipes(this.state.recipeSearch)
-      .then(res => this.setState({ recipes: res.data }))
-      .catch(err => console.log(err));
-  };
+    alert(
+      `This is the file you selected - ${
+        this.state.file[0]
+      }`
+    );
+    console.log(this.state.file);
+  }
+
+  handleImageChange(event){
+    event.preventDefault();
+
+    let reader = new FileReader();
+    let file = event.target.files[0];
+
+    reader.onloadend = () => {
+      this.setState({
+        file: file,
+        imagePreviewUrl: reader.result
+      });
+    }
+    reader.readAsDataURL(file)
+  }
 
   render() {
+    let {imagePreviewUrl} = this.state;
+    let $imagePreview = null;
+    if (imagePreviewUrl) {
+      $imagePreview = (<img src={imagePreviewUrl} />);
+    } else {
+      $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
+    }
     return (
       <div>
         <Nav />
@@ -38,24 +56,22 @@ class App extends Component {
         <Container>
           <Row>
             <Col size="md-12">
-              <form>
+            <form
+        onSubmit={this.handleSubmit}>
                 <Container>
                   <Row>
                     <Col size="xs-9 sm-10">
-                      <Input
-                        name="recipeSearch"
-                        value={this.state.recipeSearch}
-                        onChange={this.handleInputChange}
-                        placeholder="Search For a Recipe"
-                      />
+                      <label>
+                        Upload file:
+                        <input className="fileInput" type="file" onChange={(event)=>this.handleImageChange(event)}/>
+                      </label>
                     </Col>
                     <Col size="xs-3 sm-2">
                       <Button
-                        onClick={this.handleFormSubmit}
+                        onClick={(event)=>this.handleSubmit(event)}
                         type="success"
-                        className="input-lg"
-                      >
-                        Search
+                        className="input-lg">
+                        Submit
                       </Button>
                     </Col>
                   </Row>
@@ -65,23 +81,11 @@ class App extends Component {
           </Row>
           <Row>
             <Col size="xs-12">
-              {!this.state.recipes.length ? (
-                <h1 className="text-center">No Recipes to Display</h1>
-              ) : (
-                <RecipeList>
-                  {this.state.recipes.map(recipe => {
-                    return (
-                      <RecipeListItem
-                        key={recipe.title}
-                        title={recipe.title}
-                        href={recipe.href}
-                        ingredients={recipe.ingredients}
-                        thumbnail={recipe.thumbnail}
-                      />
-                    );
-                  })}
-                </RecipeList>
-              )}
+              {
+                <div className="imgPreview">
+                  {$imagePreview}
+                </div>
+              }
             </Col>
           </Row>
         </Container>
@@ -89,5 +93,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;
