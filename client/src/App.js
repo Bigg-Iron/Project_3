@@ -3,6 +3,7 @@ import Jumbotron from "./components/Jumbotron";
 import Nav from "./components/Nav";
 import Input from "./components/Input";
 import Button from "./components/Button";
+import Search from "./components/Search";
 import API from "./utils/API";
 import { RecipeList, RecipeListItem } from "./components/RecipeList";
 import { Container, Row, Col } from "./components/Grid";
@@ -53,42 +54,7 @@ class App extends Component {
       <div>
         <Nav />
         <Jumbotron />
-        <Container>
-          <Row>
-            <Col size="md-12">
-            <form
-        onSubmit={this.handleSubmit}>
-                <Container>
-                  <Row>
-                    <Col size="xs-9 sm-10">
-                      <label>
-                        Upload file:
-                        <input className="fileInput" type="file" onChange={(event)=>this.handleImageChange(event)}/>
-                      </label>
-                    </Col>
-                    <Col size="xs-3 sm-2">
-                      <Button
-                        onClick={(event)=>this.handleSubmit(event)}
-                        type="success"
-                        className="input-lg">
-                        Submit
-                      </Button>
-                    </Col>
-                  </Row>
-                </Container>
-              </form>
-            </Col>
-          </Row>
-          <Row>
-            <Col size="xs-12">
-              {
-                <div className="imgPreview">
-                  {$imagePreview}
-                </div>
-              }
-            </Col>
-          </Row>
-        </Container>
+        <Search />
       </div>
     );
   }
