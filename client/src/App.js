@@ -13,7 +13,7 @@ class App extends Component {
   state = {launches: [] };
 
   getLaunches(){
-    axios.get('https://launchlibrary.net/1.3/launch/2018-01-15')
+    axios.get('https://launchlibrary.net/1.3/launch/2018-01-27?next=30')
     .then(res => {
       console.log(res.data.launches);
       this.setState({ launches: res.data.launches});
@@ -36,10 +36,14 @@ class App extends Component {
           {launches.map((data, index) =>(
               <div className="col-sm-4" key={index}>
               <div className="embed-responsive embed-responsive-4by3">
+                
                 <div>ID: {data.id}</div> 
                 <div>NAME: {data.name}</div>
                 <div>DATE: {data.windowstart}</div>
-                <div>DESCRIPTION: {data.missions[0].description}</div>
+                <div>DESCRIPTION: {data.missions.description}</div>
+                <div>latitude: {data.location.pads[0].latitude}</div>
+                <div>longitude: {data.location.pads[0].longitude}</div>
+                <img src = {data.rocket.imageURL || "https://s3.amazonaws.com/launchlibrary/RocketImages/placeholder_1920.png"} width = "320"/>
               </div>
             </div>
           ))}
