@@ -1,77 +1,51 @@
 import React, { Component } from "react";
 import Jumbotron from "./components/Jumbotron";
 import Nav from "./components/Nav";
-import ImgSearch from "./components/ImgSearch";
+import API from "./utils/API";
+import { Container, Row, Col } from "./components/Grid";
+import { RecipeList, RecipeListItem } from "./components/RecipeList";
+import Input from "./components/Input";
+import Button from "./components/Button";
+import axios from 'axios';
 
 class App extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      file: '',
-      imagePreviewUrl: ''};
+  state = {launches: [] };
+
+  getLaunches(){
+    axios.get('https://launchlibrary.net/1.3/launch/2018-01-15')
+    .then(res => {
+      console.log(res.data.launches);
+      this.setState({ launches: res.data.launches});
+    });
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault();  
-      this.setState(
-        {
-        file: this.state.file
-      })
+  componentDidMount(){
+    this.getLaunches();
   }
 
-  handleImageChange = (event) =>{
-    event.preventDefault();
-
-    let reader = new FileReader();
-    let file = event.target.files[0];
-
-    reader.onLoadEnd = () => {
-      this.setState(
-        {
-        file: file,
-        imagePreviewUrl: reader.result
-      })
-    }
-
-    console.log('HELLO!!!!! ', file);
-
-    // reader.readAsDataURL(file)
-    this.showImg(file);
-  }
-
-  showImg = (imagePreviewUrl) =>{
-    if (!imagePreviewUrl) {
-      console.log('INSIDE!!!!');
-      imagePreviewUrl = null;
-    }
-    this.setState(
-      {
-      imagePreviewUrl: imagePreviewUrl
-    })
-  }
-
-  render() {
-    // let {imagePreviewUrl} = this.state;
-    // let imagePreview = null;
-    // if (imagePreviewUrl) {
-    //   imagePreview = (<img src={imagePreviewUrl} />);
-    // } else {
-    //   imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
-    // }
-    return (
+  render(){
+    const { launches } = this.state;
+    return(
       <div>
         <Nav />
         <Jumbotron />
-        <ImgSearch 
-          handleImageChange={this.handleImageChange}
-          handleSubmit = {this.handleSubmit}
-          imagePreviewUrl = {this.state.imagePreviewUrl}
-        />
-      </div>
-    );
-  }
-}
+        <h2>launches!</h2>
 
+        <div className ="col-sm-12">
+          {launches.map((data, index) =>(
+              <div className="col-sm-4" key={index}>
+              <div className="embed-responsive embed-responsive-4by3">
+                <div>ID: {data.id}</div> 
+                <div>NAME: {data.name}</div>
+                <div>DATE: {data.windowstart}</div>
+                <div>DESCRIPTION: {data.missions[0].description}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+}
 
 export default App;
