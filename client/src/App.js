@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Jumbotron from "./components/Jumbotron";
 import Nav from "./components/Nav";
-import API from "./utils/API";
-import { Container, Row, Col } from "./components/Grid";
+// Unused imports: 
+// import API from "./utils/API";
+// import { Container, Row, Col } from "./components/Grid";
 import axios from 'axios';
 
 class App extends Component {
@@ -27,7 +28,7 @@ class App extends Component {
       <div>
         <Nav />
         <Jumbotron />
-        <h2>launches!</h2>
+        <h2>Launches!</h2>
 
         <div className ="col-sm-12">
           {launches.map((data, index) =>(
@@ -40,7 +41,7 @@ class App extends Component {
                 <div>DESCRIPTION: {data.missions.description}</div>
                 <div>latitude: {data.location.pads[0].latitude}</div>
                 <div>longitude: {data.location.pads[0].longitude}</div>
-                <img src = {data.rocket.imageURL || "https://s3.amazonaws.com/launchlibrary/RocketImages/placeholder_1920.png"} width = "320"/>
+                <img src = {data.rocket.imageURL || "https://s3.amazonaws.com/launchlibrary/RocketImages/placeholder_1920.png"} width = "320" alt="" />
               </div>
             </div>
           ))}

@@ -8,6 +8,7 @@ const Nav = () => (
         <a href="/" className="navbar-brand">
           LAUNCHBOX 
           <span role="img" aria-label="Spaceship">🚀</span>
+          {/* <img src={ require('../../../public/SpaceshipIcon.png') } /> */}
         </a>
       </div>
     </div>
