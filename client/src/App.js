@@ -5,6 +5,7 @@ import API from "./utils/API";
 import { Container, Row, Col } from "./components/Grid";
 import Display from "./components/Display/Display";
 import axios from 'axios';
+import Auth from './Auth/Auth.js';
 
 class App extends Component {
 
@@ -23,8 +24,13 @@ class App extends Component {
   }
 
   componentDidMount(){
-    
   }
+
+  logIn = () => {
+    const auth = new Auth();
+    auth.login();
+    
+  } 
 
   readData = (data) =>{
     this.setState({ currentLaunch: data});
@@ -35,7 +41,11 @@ class App extends Component {
       <div>
         <Nav />
         <Jumbotron />
-
+        <div
+          onClick={() => {
+            this.logIn();
+          }}
+        >CLICK ME</div>
         <div>
           {this.state.currentLaunch ? <div>ID: {this.state.currentLaunch.id} </div> : ""}
           {this.state.currentLaunch ? <div>ID: {this.state.currentLaunch.name} </div> : ""}
