@@ -3,6 +3,7 @@ import Jumbotron from "./components/Jumbotron";
 import Nav from "./components/Nav";
 import API from "./utils/API";
 import { Container, Row, Col } from "./components/Grid";
+import Display from "./components/Display/Display";
 import axios from 'axios';
 import { Share } from 'react-twitter-widgets'
 
@@ -18,33 +19,34 @@ class App extends Component {
     });
   }
 
-  componentDidMount(){
+  componentWillMount(){
     this.getLaunches();
   }
 
+  componentDidMount(){
+    
+  }
+
+  readData = (data) =>{
+    this.setState({ currentLaunch: data});
+  }
   render(){
     const { launches } = this.state;
     return(
       <div>
         <Nav />
         <Jumbotron />
-        <h2>launches!</h2>
 
-        <div className ="col-sm-12">
-          {launches.map((data, index) =>(
-              <div className="col-sm-4" key={index}>
-              <div className="embed-responsive embed-responsive-4by3">
-                
-                <div>ID: {data.id}</div> 
-                <div>NAME: {data.name}</div>
-                <div>DATE: {data.windowstart}</div>
-                <div>DESCRIPTION: {data.missions.description}</div>
-                <div>latitude: {data.location.pads[0].latitude}</div>
-                <div>longitude: {data.location.pads[0].longitude}</div>
-                <img src = {data.rocket.imageURL || "https://s3.amazonaws.com/launchlibrary/RocketImages/placeholder_1920.png"} width = "320"/>
-              </div>
-            </div>
-          ))}
+        <div>
+          {this.state.currentLaunch ? <div>ID: {this.state.currentLaunch.id} </div> : ""}
+          {this.state.currentLaunch ? <div>ID: {this.state.currentLaunch.name} </div> : ""}
+          {this.state.currentLaunch ? <div>ID: {this.state.currentLaunch.windowstart} </div> : ""}
+        </div>
+
+        <div className = "col-sm-12">
+        {launches.map((data,index) =>(
+          <Display launchData = {data} key = {index} readData = {this.readData} />
+        ))}
         </div>
       </div>
     )}
