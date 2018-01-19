@@ -3,10 +3,7 @@ import Jumbotron from "./components/Jumbotron";
 import Nav from "./components/Nav";
 import API from "./utils/API";
 import { Container, Row, Col } from "./components/Grid";
-<<<<<<< HEAD
 import Display from "./components/Display/Display";
-=======
->>>>>>> a9b5b39496ec7b8e20289ea2f25d192a3d585bd4
 import axios from 'axios';
 
 class App extends Component {
@@ -38,7 +35,6 @@ class App extends Component {
       <div>
         <Nav />
         <Jumbotron />
-        <h2>launches!</h2>
 
         <div>
           {this.state.currentLaunch ? <div>ID: {this.state.currentLaunch.id} </div> : ""}
