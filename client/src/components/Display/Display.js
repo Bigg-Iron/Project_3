@@ -18,7 +18,7 @@ import React from "react";
       <div>LAUNCHPAD: {launchData.location.pads[0].name}</div>
       <div>latitude: {launchData.location.pads[0].latitude}</div>
       <div>longitude: {launchData.location.pads[0].longitude}</div>
-      <img src = {image} width = "320"/>
+      <img src = {image} width = "366" height = "243"/>
     </div>
   </div>
   )
