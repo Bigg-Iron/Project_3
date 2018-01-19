@@ -5,6 +5,7 @@ import API from "./utils/API";
 import { Container, Row, Col } from "./components/Grid";
 import Display from "./components/Display/Display";
 import axios from 'axios';
+import { Share } from 'react-twitter-widgets'
 
 class App extends Component {
 
