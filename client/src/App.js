@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 import API from "./utils/API";
 import { Container, Row, Col } from "./components/Grid";
 import axios from 'axios';
+import { Share } from 'react-twitter-widgets'
 
 class App extends Component {
 
