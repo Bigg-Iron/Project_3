@@ -32,7 +32,6 @@ class App extends Component {
   logIn = () => {
     const auth = new Auth();
     auth.login();
-    
   } 
 
   readData = (data) =>{
