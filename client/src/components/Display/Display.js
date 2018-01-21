@@ -3,8 +3,6 @@ import "./Display.css";
 // import Modal from "../../components/Modal";
 import { Button } from 'react-bootstrap';
 
-// import styles from './imagecard.less';
-// import { Row, Col, Card, Icon } from 'antd';
 
  const Display = ({launchData, readData, openModal, closeModal}) => {
   const mission = launchData.missions[0];

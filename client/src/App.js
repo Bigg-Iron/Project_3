@@ -76,7 +76,7 @@ class App extends Component {
         </div>
 
     <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-      Launch demo modal
+      Click for Modal
     </button>
 
     <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

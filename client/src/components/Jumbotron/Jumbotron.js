@@ -3,8 +3,8 @@ import "./Jumbotron.css";
 
 const Jumbotron = () => (
   <div className="jumbotron text-center">
-    <h1>When is the next space launch?</h1>
-    <p>Find out when the next launch is below!</p>
+    <h1>LAUNCHBOX</h1>
+    <h2>The app for all your space launch needs.</h2>
   </div>
 );
 
