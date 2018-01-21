@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "antd": "2.12.2",
     "auth0-js": "^9.1.0",
     "axios": "^0.16.2",
     "history": "^4.7.2",
