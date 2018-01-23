@@ -1,6 +1,7 @@
 import React from "react";
+import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
- const Display = ({launchData, readData}) => {
+ const Display = ({launchData, readData, favoriteData}) => {
   const mission = launchData.missions[0];
   let image = launchData.rocket.imageURL
 
@@ -19,6 +20,7 @@ import React from "react";
       <div>latitude: {launchData.location.pads[0].latitude}</div>
       <div>longitude: {launchData.location.pads[0].longitude}</div>
       <img src = {image} width = "366" height = "243"/>
+      <FavoriteButton launch={launchData} favorites={favoriteData} />
     </div>
   </div>
   )

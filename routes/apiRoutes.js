@@ -12,19 +12,12 @@ router.get("/launches", (req, res) => {
 // Matches with "/api/favorite"
 router.route("/favorite")
   .get(favController.findAll)
-  .post(favController.create);
+  .post(favController.create)
+  .delete(favController.removeAll);
 
 // Matches with "/api/favorite/:userid"
 router
 .route("/favorite/:userid")
 .get(favController.findByUserId)
-
-// Matches with "/api/favorite/:id"
-/*
-router
-  .route("/favorite/:id")
-  .get(favController.findById)
-  .put(favController.update)
-  .delete(favController.remove);*/
 
 module.exports = router;
