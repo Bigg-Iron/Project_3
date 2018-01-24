@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import Jumbotron from "./components/Jumbotron";
 import Nav from "./components/Nav";
-// Unused imports: 
-// import API from "./utils/API";
-// import { Container, Row, Col } from "./components/Grid";
 import axios from 'axios';
 
 class App extends Component {
