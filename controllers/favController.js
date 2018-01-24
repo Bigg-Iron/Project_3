@@ -39,5 +39,12 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  removeAll: function(req, res) {
+    db.Favorite
+      .remove({launchId: req.query.launchId, userId: req.query.userId})
+      //.then(dbModel => dbModel.remove())
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   }
 };
