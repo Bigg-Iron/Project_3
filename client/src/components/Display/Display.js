@@ -2,7 +2,7 @@ import React from "react";
 import "./Display.css";
 
  const Display = ({launchData, readData}) => {
-  const mission = launchData.missions[0];
+  // const mission = launchData.missions[0];
   let image = launchData.rocket.imageURL
 
   if (image === "Array"){
