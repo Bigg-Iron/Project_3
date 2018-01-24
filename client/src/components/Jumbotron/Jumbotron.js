@@ -4,7 +4,7 @@ import "./Jumbotron.css";
 const Jumbotron = () => (
   <div className="jumbotron text-center">
     <h1>LAUNCHBOX</h1>
-    <h2>The app for all your space launch needs.</h2>
+    <h2>Grab your lunch and watch a launch.</h2>
   </div>
 );
 
