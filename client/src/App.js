@@ -3,8 +3,6 @@ import axios from 'axios';
 import Jumbotron from "./components/Jumbotron";
 import Nav from "./components/Nav";
 import Display from "./components/Display/Display";
-// import Modal from "./components/Modal/Modal";
-import { Button } from 'react-bootstrap';
 
 
 import Auth from './Auth/Auth.js';

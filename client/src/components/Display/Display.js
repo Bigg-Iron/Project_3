@@ -1,11 +1,9 @@
 import React from "react";
 import "./Display.css";
 // import Modal from "../../components/Modal";
-import { Button } from 'react-bootstrap';
 
 
  const Display = ({launchData, readData, openModal, closeModal}) => {
-  const mission = launchData.missions[0];
   let image = launchData.rocket.imageURL
 
   if (image === "Array"){
