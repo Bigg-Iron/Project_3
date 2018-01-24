@@ -66,11 +66,7 @@ class App extends Component {
 
         <div className = "col-sm-12">
         {launches.map((data,index) =>(
-<<<<<<< HEAD
-          <Display launchData = {data} key = {index} readData = {this.readData} />
-=======
           <Display launchData = {data} key = {index} readData = {this.readData} favoriteData = {this.state.favorites}/>
->>>>>>> cf9ab6c316c693e89d735380ef7e6249f60c9bb8
         ))}
         </div>
 
