@@ -4,7 +4,10 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "antd": "2.12.2",
+    "auth0-js": "^9.1.0",
     "axios": "^0.16.2",
+    "history": "^4.7.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-router-dom": "^4.1.2",
