@@ -1,9 +1,8 @@
 import React from "react";
 import "./Display.css";
-// import Modal from "../../components/Modal";
 
-
- const Display = ({launchData, readData, openModal, closeModal}) => {
+ const Display = ({launchData, readData}) => {
+  const mission = launchData.missions[0];
   let image = launchData.rocket.imageURL
 
   if (image === "Array"){
@@ -19,16 +18,10 @@ import "./Display.css";
           <div className = "display-id">{launchData.id}</div> 
           <div className = "display-name">{launchData.name}</div>
           <div className = "display-date">{launchData.windowstart}</div>
-          {/* <div>DESCRIPTION: {mission ? mission.description : "Description is unavailable."}</div> */}
           <div className = "display-pad">{launchData.location.pads[0].name}</div>
-          {/* <div>latitude: {launchData.location.pads[0].latitude}</div>
-          <div>longitude: {launchData.location.pads[0].longitude}</div> */}
         </div>
-        {/* <Modal> */}
-          <button onClick ={ () => readData(launchData)}>More Info
+          <button className="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onClick ={ () => readData(launchData)}> ⓘ
           </button>
-        {/* </Modal> */}
-
     </div>
   </div>
   )
