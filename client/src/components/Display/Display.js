@@ -1,8 +1,9 @@
 import React from "react";
+import FavoriteButton from "../FavoriteButton/FavoriteButton";
 import "./Display.css";
 
- const Display = ({launchData, readData}) => {
-  // const mission = launchData.missions[0];
+ const Display = ({launchData, readData, favoriteData}) => {
+  const mission = launchData.missions[0];
   let image = launchData.rocket.imageURL
 
   if (image === "Array"){
@@ -22,6 +23,7 @@ import "./Display.css";
         </div>
           <button className="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onClick ={ () => readData(launchData)}> ⓘ
           </button>
+          <FavoriteButton launch={launchData} favorites={favoriteData} />
     </div>
   </div>
   )

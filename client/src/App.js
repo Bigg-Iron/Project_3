@@ -3,15 +3,16 @@ import axios from 'axios';
 import Jumbotron from "./components/Jumbotron";
 import Nav from "./components/Nav";
 import Display from "./components/Display/Display";
+import FavoriteDisplay from "./components/FavoriteDisplay/FavoriteDisplay";
 
 import Auth from './Auth/Auth.js';
-// import { Share } from 'react-twitter-widgets'
+import { Share } from 'react-twitter-widgets'
 
 class App extends Component {
 
   state = {
     launches: [],
-    showModal: false 
+    favorites: []
   };
 
   getLaunches(){
@@ -22,8 +23,20 @@ class App extends Component {
     });
   }
 
+  // get all favorites for this user, we'll compare to the launch id
+  // to determine if the button should show as a favorite
+  getFavorites(){
+    // example: http://localhost:3001/api/favorite/newperson@email.com
+    let userId = "newperson@email.com"; // should be populated by auth0
+    axios.get('http://localhost:3001/api/favorite/' + userId)
+    .then(res => {
+      this.setState({ favorites: res.data});
+    });
+}
+
   componentWillMount(){
     this.getLaunches();
+    this.getFavorites();
   }
 
   componentDidMount(){
@@ -40,7 +53,7 @@ class App extends Component {
 
   render(){
     const { launches } = this.state;
-
+    console.log('favs:', this.state.favorites );
     return(
       <div>
         <Nav />
@@ -53,7 +66,7 @@ class App extends Component {
 
         <div className = "col-sm-12">
         {launches.map((data,index) =>(
-          <Display launchData = {data} key = {index} readData = {this.readData} openModal = {this.openModal} closeModal = {this.closeModal} />
+          <Display launchData = {data} key = {index} readData = {this.readData} favoriteData = {this.state.favorites}/>
         ))}
         </div>
 
