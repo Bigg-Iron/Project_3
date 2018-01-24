@@ -1,0 +1,30 @@
+.display-card {
+  background: rgb(255, 255, 255);
+  border-style: solid;
+  height: 360px;
+  margin: 1rem;
+  position: relative;
+  width: 80%;
+  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+  text-align: left;
+}
+.display-image {
+  height: 60%;
+  overflow: hidden;
+  text-align: center;
+  background:rgb(17, 130, 211);
+}
+
+.display-image > img {
+  width: 100%
+}
+
+.display-content {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 15px;
+}
+
+.btn:hover{
+  color: red;
+}
