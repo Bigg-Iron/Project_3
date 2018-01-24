@@ -53,7 +53,7 @@ class App extends Component {
 
         <div className = "col-sm-12">
         {launches.map((data,index) =>(
-          <Display launchData = {data} key = {index} readData = {this.readData} openModal = {this.openModal} closeModal = {this.closeModal} />
+          <Display launchData = {data} key = {index} readData = {this.readData} />
         ))}
         </div>
 
