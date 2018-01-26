@@ -1,7 +1,11 @@
 import React from "react";
 import "./Nav.css";
 
-const Nav = () => (
+const Nav = ({ logIn }) => {
+  console.log(logIn);
+  
+  return (
+
   <nav className="navbar navbar-inverse navbar-top">
     <div className="container-fluid">
       <div className="navbar-header">
@@ -17,6 +21,6 @@ const Nav = () => (
       </div>
     </div>
   </nav>
-);
+)};
 
 export default Nav;

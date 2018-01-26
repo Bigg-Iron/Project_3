@@ -73,21 +73,8 @@ class App extends Component {
     this.setState({ currentLaunch: data});
   }
 
-  render(){
-    const { launches } = this.state;
-    console.log('favs:', this.state.favorites );
-    return(
-      <div>
-        <Nav />
-        <Jumbotron />
-        <div
-          onClick={() => {
-            this.logIn();
-          }}
-        >CLICK ME</div>
-
-        {!this.isAuthenticated ? <NoAuth auth={this.state.auth} logIn={this.logIn}/> : null } 
-
+  injectLaunchesView = () => {
+    return (
         <div className = "col-sm-12">
         {launches.map((data,index) =>(
           <Display launchData = {data} key = {index} readData = {this.readData} favoriteData = {this.state.favorites}/>
@@ -123,6 +110,27 @@ class App extends Component {
             </div>
           </div>
         </div> 
+    )
+
+  }
+
+
+  render(){
+    const { launches } = this.state;
+    console.log('favs:', this.state.favorites );
+    return(
+      <div>
+        <Nav logIn={this.logIn()} />
+        <Jumbotron />
+        <div
+          onClick={() => {
+            this.logIn();
+          }}
+        >CLICK ME</div>
+
+        {!this.isAuthenticated ? <NoAuth auth={this.state.auth} logIn={this.logIn}/> : null } 
+
+
   </div>
     )}
 }
