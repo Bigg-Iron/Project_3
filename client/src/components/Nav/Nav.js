@@ -1,8 +1,8 @@
 import React from "react";
 import "./Nav.css";
 
-const Nav = ({ logIn }) => {
-  console.log(logIn);
+const Nav = ({ logIn, logout, isAuthenticated }) => {
+  console.log(isAuthenticated);
   
   return (
 
@@ -15,7 +15,18 @@ const Nav = ({ logIn }) => {
         </a>
       <div className = "collapse navbar-collapse">
         <ul className="nav navbar-nav navbar-right">
-          <li><a href="#">Log In</a></li>
+          {!isAuthenticated() && <li
+            style={{color: 'white'}}
+            onClick={() => {
+              logIn();
+            }}
+            >Log In</li>}
+          {isAuthenticated() && <li
+            style={{color: 'white'}}
+            onClick={() => {
+              logout();
+            }}
+          >Logout</li>}
         </ul>
         </div>
       </div>

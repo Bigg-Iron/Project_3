@@ -1,7 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import Auth from './Auth/Auth.js';
 
-ReactDOM.render(<App />, document.getElementById("root"));
+const auth = new Auth();
+
+ReactDOM.render(<App auth={auth} />, document.getElementById("root"));
 
 
