@@ -13,10 +13,11 @@ const Nav = ({ logIn }) => {
           LAUNCHBOX
           <span role="img" aria-label="Spaceship">🚀</span>
         </a>
-
+      <div className = "collapse navbar-collapse">
         <ul className="nav navbar-nav navbar-right">
           <li><a href="#">Log In</a></li>
         </ul>
+        </div>
       </div>
     </div>
   </nav>

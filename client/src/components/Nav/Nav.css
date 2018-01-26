@@ -10,3 +10,12 @@ nav.navbar {
   font-family: 'Space Mono', monospace;
   font-size: 25px;
 }
+
+.navbar-collapse{
+  flex-basis: 50%;
+  float:right;
+}
+
+.navbar-header{
+  float: left;
+}
