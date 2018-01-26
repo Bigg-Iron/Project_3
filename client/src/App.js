@@ -4,15 +4,17 @@ import Jumbotron from "./components/Jumbotron";
 import Nav from "./components/Nav";
 import Display from "./components/Display/Display";
 import FavoriteDisplay from "./components/FavoriteDisplay/FavoriteDisplay";
-
 import Auth from './Auth/Auth.js';
+import NoAuth from "./components/NoAuth/NoAuth.js";
 import { Share } from 'react-twitter-widgets'
+
 
 class App extends Component {
 
   state = {
     launches: [],
-    favorites: []
+    favorites: [],
+    auth: null
   };
 
   getLaunches(){
@@ -35,8 +37,13 @@ class App extends Component {
 }
 
   componentWillMount(){
-    this.getLaunches();
-    this.getFavorites();
+      if (this.isUserAuthenticated()) {
+        // do this
+      } else {
+        // do that
+      }
+      this.getLaunches();
+      this.getFavorites();
   }
 
   componentDidMount(){
@@ -45,7 +52,22 @@ class App extends Component {
   logIn = () => {
     const auth = new Auth();
     auth.login();
+    this.setState({
+      auth
+    });
   } 
+
+  goTo = (route) => {
+    this.props.history.replace(`/${route}`);
+  }
+
+  isUserAuthenticated = () => {
+    if (this.state.auth && this.state.auth.isAuthenticated) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   readData = (data) =>{
     this.setState({ currentLaunch: data});
@@ -63,6 +85,8 @@ class App extends Component {
             this.logIn();
           }}
         >CLICK ME</div>
+
+        {!this.isAuthenticated ? <NoAuth auth={this.state.auth} logIn={this.logIn}/> : null } 
 
         <div className = "col-sm-12">
         {launches.map((data,index) =>(
@@ -84,12 +108,12 @@ class App extends Component {
               <div className="modal-body">
               <div>
 
-              {this.state.currentLaunch && this.state.currentLaunch[0] ? <div>DESCRIPTION: {this.state.currentLaunch.missions[0].description} </div> : <div>DESCRIPTION: Unavailable for this launch.</div>}
+              {this.state.currentLaunch && this.state.currentLaunch.missions[0] ? <div className = "m-title">DESCRIPTION: {this.state.currentLaunch.missions[0].description} </div> : <div>DESCRIPTION: Unavailable for this launch.</div>}
 
-              {this.state.currentLaunch ? <div>ROCKET NAME: {this.state.currentLaunch.rocket.name} </div> : ""}
+              {this.state.currentLaunch ? <div className = "m-title">ROCKET NAME: {this.state.currentLaunch.rocket.name} </div> : ""}
 
-              {this.state.currentLaunch ? <div>LONGITUDE: {this.state.currentLaunch.location.pads[0].longitude} </div> : ""}
-              {this.state.currentLaunch ? <div>LATITUDE: {this.state.currentLaunch.location.pads[0].latitude} </div> : ""}
+              {this.state.currentLaunch ? <div className = "m-title">LONGITUDE: {this.state.currentLaunch.location.pads[0].longitude} </div> : ""}
+              {this.state.currentLaunch ? <div className = "m-title">LATITUDE: {this.state.currentLaunch.location.pads[0].latitude} </div> : ""}
 
             </div>
               </div>
