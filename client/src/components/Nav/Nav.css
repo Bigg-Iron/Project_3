@@ -7,4 +7,6 @@ nav.navbar {
 }
 .navbar-brand{
   color: white;
+  font-family: 'Space Mono', monospace;
+  font-size: 25px;
 }
