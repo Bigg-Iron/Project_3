@@ -1,15 +1,19 @@
 .jumbotron {
   min-height: 300px;
   padding-top: 75px;
-  background-image: url('https://www-tc.pbs.org/wgbh/nova/next/wp-content/uploads/2017/06/quantum-entanglement_2048x1152.jpg');
+  background: linear-gradient(black, rgb(89, 43, 63), rgba(0, 0, 0, 0.454));
 }
 
 h2{
   color: white;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 40px;
 }
 
 
 .jumbotron h1, .jumbotron .h1 {
     font-size: 68px;
     color: white;
+    font-family: 'Space Mono', monospace;
+    font-size: 110px;
 }

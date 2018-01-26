@@ -1,3 +1,10 @@
+body{
+  background: linear-gradient(black, rgb(81, 43, 89), rgba(85, 11, 233, 0.454), rgb(23, 111, 113));
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 20px;
+}
+
+
 .display-card {
   background: rgb(255, 255, 255);
   border-style: solid;
@@ -22,7 +29,7 @@
 .display-content {
   padding-left: 1rem;
   padding-right: 1rem;
-  font-size: 15px;
+  font-size: 18.5px;
 }
 
 .btn:hover{

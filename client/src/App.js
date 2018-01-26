@@ -108,12 +108,12 @@ class App extends Component {
               <div className="modal-body">
               <div>
 
-              {this.state.currentLaunch && this.state.currentLaunch[0] ? <div>DESCRIPTION: {this.state.currentLaunch.missions[0].description} </div> : <div>DESCRIPTION: Unavailable for this launch.</div>}
+              {this.state.currentLaunch && this.state.currentLaunch.missions[0] ? <div className = "m-title">DESCRIPTION: {this.state.currentLaunch.missions[0].description} </div> : <div>DESCRIPTION: Unavailable for this launch.</div>}
 
-              {this.state.currentLaunch ? <div>ROCKET NAME: {this.state.currentLaunch.rocket.name} </div> : ""}
+              {this.state.currentLaunch ? <div className = "m-title">ROCKET NAME: {this.state.currentLaunch.rocket.name} </div> : ""}
 
-              {this.state.currentLaunch ? <div>LONGITUDE: {this.state.currentLaunch.location.pads[0].longitude} </div> : ""}
-              {this.state.currentLaunch ? <div>LATITUDE: {this.state.currentLaunch.location.pads[0].latitude} </div> : ""}
+              {this.state.currentLaunch ? <div className = "m-title">LONGITUDE: {this.state.currentLaunch.location.pads[0].longitude} </div> : ""}
+              {this.state.currentLaunch ? <div className = "m-title">LATITUDE: {this.state.currentLaunch.location.pads[0].latitude} </div> : ""}
 
             </div>
               </div>
