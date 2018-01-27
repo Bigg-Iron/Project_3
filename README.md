@@ -1,4 +1,14 @@
 # LAUNCHBOX
 
-LaunchBox is an app that displays space launches. Users can "favorite" launches that they want to keep an eye on and also share launch information on Twitter!
-[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
+Launchbox brings users together to experience the future of space exploration. With new aerospaces ventures like Elon Musk’s SpaceX -- rockets are becoming a part of our everyday life. Up till now, we’ve had to view launches on youtube or on the nightly news. **Launchbox** changes all that. Our app can help users find upcoming launches all over the world. 
+
+Our unique app allows users to share their excitement about space and technology on Twitter where they can plan meet-ups or invite friends to join a viewing party. 
+
+Check out our deployed app on Heroku! [link to LaunchBox!](http://google.com)
+
+**LaunchBox** is a single-page React application that utilizes a Node server, node packages such as: react-boostrap and react-twitter-widgets, MongoDB with the node package "Mongoose" and Auth0 for authentication. 
+
+We made use of the **LaunchLibrary** API [found here!](https://launchlibrary.net/)
+
+
+Created by **Anna Ly, Steph Huynh, Michael Bagdazian, and Lorenzo Bartolo** as part of the UC San Diego's WebDev bootcamp. 
