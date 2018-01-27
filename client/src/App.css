@@ -1,0 +1,18 @@
+.col-sm-12{
+    animation: bottom_top 2s ease-in-out;
+}
+
+
+@keyframes bottom_top{
+    0%{
+        transform: translate(-500px, 1200px) rotate(45deg);
+    }
+
+    100%{
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+}
+
+.display-card{
+    position: relative;
+}
