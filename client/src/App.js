@@ -5,7 +5,8 @@ import Nav from "./components/Nav";
 import Display from "./components/Display/Display";
 import FavoriteDisplay from "./components/FavoriteDisplay/FavoriteDisplay";
 import NoAuth from "./components/NoAuth/NoAuth.js";
-import { Share } from 'react-twitter-widgets'
+import { Share } from 'react-twitter-widgets';
+import "./App.css";
 
 class App extends Component {
 
