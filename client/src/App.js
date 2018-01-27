@@ -4,17 +4,15 @@ import Jumbotron from "./components/Jumbotron";
 import Nav from "./components/Nav";
 import Display from "./components/Display/Display";
 import FavoriteDisplay from "./components/FavoriteDisplay/FavoriteDisplay";
-import Auth from './Auth/Auth.js';
 import NoAuth from "./components/NoAuth/NoAuth.js";
-import { Share } from 'react-twitter-widgets'
-
+import { Share } from 'react-twitter-widgets';
+import "./App.css";
 
 class App extends Component {
 
   state = {
     launches: [],
     favorites: [],
-    auth: null
   };
 
   getLaunches(){
@@ -37,57 +35,35 @@ class App extends Component {
 }
 
   componentWillMount(){
-      if (this.isUserAuthenticated()) {
-        // do this
-      } else {
-        // do that
-      }
       this.getLaunches();
       this.getFavorites();
   }
 
   componentDidMount(){
+    if (window.location.pathname === '/callback') {
+      this.props.auth.handleAuthentication();
+    }
   }
 
   logIn = () => {
-    const auth = new Auth();
-    auth.login();
-    this.setState({
-      auth
-    });
+    this.props.auth.login()
   } 
+
+  logout = () => {
+    this.props.auth.logout();
+  }
 
   goTo = (route) => {
     this.props.history.replace(`/${route}`);
   }
 
-  isUserAuthenticated = () => {
-    if (this.state.auth && this.state.auth.isAuthenticated) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   readData = (data) =>{
     this.setState({ currentLaunch: data});
   }
-
-  render(){
+  injectLaunchesView = () => {
     const { launches } = this.state;
-    console.log('favs:', this.state.favorites );
-    return(
+    return (
       <div>
-        <Nav />
-        <Jumbotron />
-        <div
-          onClick={() => {
-            this.logIn();
-          }}
-        >CLICK ME</div>
-
-        {!this.isAuthenticated ? <NoAuth auth={this.state.auth} logIn={this.logIn}/> : null } 
-
         <div className = "col-sm-12">
         {launches.map((data,index) =>(
           <Display launchData = {data} key = {index} readData = {this.readData} favoriteData = {this.state.favorites}/>
@@ -123,6 +99,20 @@ class App extends Component {
             </div>
           </div>
         </div> 
+      </div>
+    )
+
+  }
+
+
+  render(){
+    console.log('APP RENDER', this.props.auth.isAuthenticated());
+    return(
+      <div>
+        <Nav logIn={this.logIn} logout={this.logout} isAuthenticated={this.props.auth.isAuthenticated}/>
+        <Jumbotron />
+        {this.props.auth.isAuthenticated() ? this.injectLaunchesView() : null}
+
   </div>
     )}
 }

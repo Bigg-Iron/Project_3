@@ -8,12 +8,13 @@ body{
 .display-card {
   background: rgb(255, 255, 255);
   border-style: solid;
-  height: 360px;
+  height: 415px;
   margin: 1rem;
   position: relative;
   width: 80%;
-  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+  box-shadow: 10px 3px 26px 5px rgba(0, 0, 0, 0.5);
   text-align: left;
+  border-radius: 4px;
 }
 .display-image {
   height: 60%;
@@ -30,8 +31,38 @@ body{
   padding-left: 1rem;
   padding-right: 1rem;
   font-size: 18.5px;
+  margin-bottom: 20px;
+  /* overflow: scroll; */
 }
 
 .btn:hover{
   color: red;
+}
+
+
+.display-content + button{
+  position: absolute;
+  bottom: 0;
+  padding:5px 10px;
+  opacity: 0;
+  animation: info 1s ease-in-out 2s forwards;
+}
+
+
+@keyframes info{
+  0%{
+    opacity: 0;
+    transform: scale(0.1);
+  }
+
+  50%{
+    transform: translate(160px, -130px);
+  }
+
+  100%{
+    opacity: 1;
+    transform: scale(1);
+    transform: translate(0px, 0px);
+    
+  }
 }

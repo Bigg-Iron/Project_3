@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./FavoriteButton.css";
 import axios from 'axios';
 import { Share } from 'react-twitter-widgets';
+import "./FavoriteButton.css";
 
 class FavoriteButton extends Component {
 
