@@ -11,4 +11,21 @@ Check out our deployed app on Heroku! [link to LaunchBox!](http://google.com)
 We made use of the **LaunchLibrary** API [found here!](https://launchlibrary.net/)
 
 
-Created by **Anna Ly, Steph Huynh, Michael Bagdazian, and Lorenzo Bartolo** as part of the UC San Diego's WebDev bootcamp. 
+Created by:
+
+* **Anna Ly**
+[Anna's GitHub](https://github.com/annatly2)
+
+
+* **Steph Huynh** 
+[Steph's GitHUb](https://github.com/Steph48964)
+
+
+* **Michael Bagdazian**
+[Michael's's GitHUb](https://github.com/mbagdazian)
+
+
+* **Lorenzo Bartolo** 
+[Lorenzo's GitHUb](https://github.com/Bigg-Iron)
+
+-- as part of the UC San Diego's WebDev bootcamp. 
