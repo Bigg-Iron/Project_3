@@ -4,7 +4,6 @@ body{
   font-size: 20px;
 }
 
-
 .display-card {
   background: rgb(255, 255, 255);
   border-style: solid;
@@ -16,6 +15,7 @@ body{
   text-align: left;
   border-radius: 4px;
 }
+
 .display-image {
   height: 60%;
   overflow: hidden;
@@ -32,22 +32,19 @@ body{
   padding-right: 1rem;
   font-size: 18.5px;
   margin-bottom: 20px;
-  /* overflow: scroll; */
 }
 
 .btn:hover{
   color: red;
 }
 
-
 .display-content + button{
   position: absolute;
   bottom: 0;
   padding:5px 10px;
   opacity: 0;
-  animation: info 1s ease-in-out 2s forwards;
+  animation: info 1s ease-in-out 1.5s forwards;
 }
-
 
 @keyframes info{
   0%{

@@ -15,18 +15,16 @@ const Nav = ({ logIn, logout, isAuthenticated }) => {
         </a>
       <div className = "collapse navbar-collapse">
         <ul className="nav navbar-nav navbar-right">
-          {!isAuthenticated() && <li
-            style={{color: 'white'}}
+          {!isAuthenticated() && <button className="btn log" ><li
             onClick={() => {
               logIn();
             }}
-            >Log In</li>}
-          {isAuthenticated() && <li
-            style={{color: 'white'}}
+            >LOGIN / CREATE AN ACCOUNT</li></button>}
+          {isAuthenticated() && <button className="btn log" ><li
             onClick={() => {
               logout();
             }}
-          >Logout</li>}
+          >LOGOUT</li></button>}
         </ul>
         </div>
       </div>

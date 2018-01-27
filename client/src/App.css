@@ -2,7 +2,6 @@
     animation: bottom_top 2s ease-in-out;
 }
 
-
 @keyframes bottom_top{
     0%{
         transform: translate(-500px, 1200px) rotate(45deg);

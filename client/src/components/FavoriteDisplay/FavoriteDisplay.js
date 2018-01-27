@@ -18,7 +18,6 @@ componentWillMount(){
   this.getFavorites("newperson@email.com"); // example, need to pull this from auth0 (probaby localstorage)
 }
 
-
 render() {
 
   const { favorites }  = this.state;

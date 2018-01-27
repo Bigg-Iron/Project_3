@@ -48,7 +48,6 @@ setFavorite(){
   this.setState({isFavorite: found != undefined});
 }
 
-
 constructor(props){
   super(props);
   this.state = {
@@ -56,7 +55,7 @@ constructor(props){
       userId: "newperson@email.com",
       isFavorite:false, 
       favorites: props.favorites,
-      launchTweet: "https://twitter.com/intent/tweet?text=" + encodeURIComponent("Upcoming launch! " + this.props.launch.name) + "%0a" + encodeURIComponent("Where to watch live: <a href='www.google.com'>Google</a>")
+      launchTweet: "https://twitter.com/intent/tweet?text=" + encodeURIComponent("Come watch this launch with me! " + this.props.launch.name + " is happening on " + this.props.launch.windowstart + ".") + "%0a" + encodeURIComponent("Sponsored by LAUNCHBOX.")
   };
   
   this.handleClick = this.handleClick.bind(this);
@@ -71,18 +70,19 @@ render(){
   
   return(
     <div className="favButton">
-      <button type="button" className="btn btn-success ml-1" onClick={this.handleClick}>
-        {this.state.isFavorite ? 'Remove Favorite' : 'Add to Favorites'}
-      </button>
 
       <a className="twitter-share-button"
         href={this.state.launchTweet}>
-      Tweet</a>
+      <img src = "http://www.stickpng.com/assets/images/580b57fcd9996e24bc43c53e.png" width = "40px"/></a>
     
       <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+
+      
+      <a onClick={this.handleClick}>
+        {this.state.isFavorite ? <img src = "http://www.freeiconspng.com/uploads/rocket-icon-png-21.png" width = "45px"/> : <img src = "https://www.shareicon.net/data/512x512/2015/12/13/687056_rocket_512x512.png" width = "35px"/>}
+      </a>
     </div>
   );
-}
-}
+}}
 
 export default FavoriteButton;

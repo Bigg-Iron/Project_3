@@ -19,3 +19,15 @@ nav.navbar {
 .navbar-header{
   float: left;
 }
+
+.log{
+  position: absolute;
+  color: white;
+  background-color:rgb(23, 111, 113);
+  bottom: 0;
+  right:0px;
+  font-family: 'Space Mono', monospace;
+  display: flex;
+  justify-content: space-around;
+}
+

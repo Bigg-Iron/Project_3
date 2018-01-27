@@ -101,12 +101,10 @@ class App extends Component {
         </div> 
       </div>
     )
-
   }
 
-
   render(){
-    console.log('APP RENDER', this.props.auth.isAuthenticated());
+    //console.log('APP RENDER', this.props.auth.isAuthenticated());
     return(
       <div>
         <Nav logIn={this.logIn} logout={this.logout} isAuthenticated={this.props.auth.isAuthenticated}/>
