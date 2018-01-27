@@ -22,7 +22,7 @@ Created by:
 
 
 * **Michael Bagdazian**
-[Michael's's GitHUb](https://github.com/mbagdazian)
+[Michael's GitHUb](https://github.com/mbagdazian)
 
 
 * **Lorenzo Bartolo** 
