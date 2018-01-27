@@ -1,4 +1,4 @@
-# LAUNCHBOX
+# LAUNCHBOX :rocket:
 
 Launchbox brings users together to experience the future of space exploration. With new aerospaces ventures like Elon Musk’s SpaceX -- rockets are becoming a part of our everyday life. Up till now, we’ve had to view launches on youtube or on the nightly news. **Launchbox** changes all that. Our app can help users find upcoming launches all over the world. 
 
@@ -13,19 +13,13 @@ We made use of the **LaunchLibrary** API [found here!](https://launchlibrary.net
 
 Created by:
 
-* **Anna Ly**
-[Anna's GitHub](https://github.com/annatly2)
+* [Anna Ly](https://github.com/annatly2)
+
+* [Lorenzo Bartolo](https://github.com/Bigg-Iron)
+
+* [Michael Bagdazian](https://github.com/mbagdazian)
+
+* [Steph Huynh](https://github.com/Steph48964)
 
 
-* **Steph Huynh** 
-[Steph's GitHUb](https://github.com/Steph48964)
-
-
-* **Michael Bagdazian**
-[Michael's GitHUb](https://github.com/mbagdazian)
-
-
-* **Lorenzo Bartolo** 
-[Lorenzo's GitHUb](https://github.com/Bigg-Iron)
-
--- as part of the UC San Diego's WebDev bootcamp. 
+-- as part of the UC San Diego's Full-Stack Web Development bootcamp. 
